@@ -14,7 +14,7 @@ int _isupper(int c)
 		return (0);
 }
 */
-#include "holberton.h"
+#include "main.h"
 /**
 * _isupper - check is uppercase character
 * @c: int to test
