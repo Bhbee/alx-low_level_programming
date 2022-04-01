@@ -1,5 +1,3 @@
-#!/bin/bash
-
 
 #!/bin/bash
 gcc -c *.c
