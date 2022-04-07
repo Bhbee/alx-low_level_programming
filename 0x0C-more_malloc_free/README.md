@@ -1,3 +1,1 @@
-# 0x0C. C - More malloc, free
-To edit soon ...
-
+Introduction to C - More malloc, free
