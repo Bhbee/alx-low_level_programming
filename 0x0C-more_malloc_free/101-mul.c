@@ -1,5 +1,7 @@
+#include "main.h"
+#include <stdio.h>
 #include <stdlib.h>
-#include "holberton.h"
+#include <string.h>
 /**
  * _prt - print string followed by newline
  * @s: string to print
