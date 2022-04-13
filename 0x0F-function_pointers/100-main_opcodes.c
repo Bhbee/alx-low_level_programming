@@ -1,34 +1,39 @@
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 /**
- * main - prints its own opcodes
+ * main - check the code for Alx School Student
+ * * @argc: argument count.
+ * @argv: argument vector.
  *
- * @argc: argument count
- * @argv: argument vector
- * Return: int
+ * Return: Always 0.
  */
 int main(int argc, char *argv[])
 {
-	int i, (*a)(int, char **) = main;
+	char *opc = (char *) main;
+	int i, nbytes;
 
 	if (argc != 2)
 	{
 		printf("Error\n");
 		exit(1);
 	}
-	if (atoi(argv[1]) < 0)
+
+	nbytes = atoi(argv[1]);
+
+	if (nbytes < 0)
 	{
 		printf("Error\n");
 		exit(2);
 	}
-	printf("%.2x", *(unsigned char *)a);
-	a++;
-	for (i = 1; i < atoi(argv[1]); i++)
+
+	for (i = 0; i < nbytes; i++)
 	{
-		printf(" %.2x", *(unsigned char *)a);
-		a++;
+		printf("%02x", opc[i] & 0xFF);
+		if (i != nbytes - 1)
+			printf(" ");
 	}
+
 	printf("\n");
 	return (0);
 }

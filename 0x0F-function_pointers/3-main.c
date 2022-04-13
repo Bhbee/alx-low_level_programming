@@ -1,34 +1,46 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
 #include "3-calc.h"
-
 /**
- * main - performs simple operations
+ * main - main
+ * @argc: arg count
+ * @argv: arg array
  *
- * @argc: argument count
- * @argv: argument vector
  * Return: int
- */
-int main(int argc, char *argv[])
+ *
+ **/
+int main(int argc, char **argv)
 {
-	int a, b, res;
+	int inta, intb;
+	int (*f)(int, int);
 
 	if (argc != 4)
 	{
 		printf("Error\n");
 		return (98);
 	}
-	a = atoi(argv[1]);
-	b = atoi(argv[3]);
-	if (!get_op_func(argv[2]) || argv[2][1] != '\0')
+
+	f = get_op_func(argv[2]);
+
+	if (f == NULL)
 	{
 		printf("Error\n");
 		return (99);
 	}
-	if (b == 0 && (*argv[2] == '/' || *argv[2] == '%'))
+
+	if ((argv[2][0] != '+' && argv[2][0] != '-' && argv[2][0] != '/' &&
+	      argv[2][0] != '*' && argv[2][0] != '%') || strlen(argv[2]) != 1)
 	{
 		printf("Error\n");
-		return (100);
+		exit(99);
 	}
-	res = get_op_func(argv[2])(a, b);
-	printf("%d\n", res);
-	return (0);
+
+		inta = atoi(argv[1]);
+		intb = atoi(argv[3]);
+
+		printf("%d\n", f(inta, intb));
+
+		return (0);
+
 }
